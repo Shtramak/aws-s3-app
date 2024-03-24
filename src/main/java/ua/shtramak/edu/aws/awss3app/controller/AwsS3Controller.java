@@ -2,6 +2,7 @@ package ua.shtramak.edu.aws.awss3app.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +30,10 @@ public class AwsS3Controller {
 
     @GetMapping("/{fileName}")
     public ResponseEntity<byte[]> getFileByName(@PathVariable String fileName) {
-        return ResponseEntity.ok(awsS3Service.getFileByName(fileName));
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(awsS3Service.getFileByName(fileName));
     }
 
     @GetMapping("/{fileName}/pre-signed")
