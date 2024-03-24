@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: aws-s3-app
+
+aws:
+  bucket-name:
+    write: shtramak-bucket-write
+    read: shtramak-bucket-read
+
+springdoc:
+  api-docs:
+    path: /api
+  swagger-ui:
+    path: /swagger-ui.html
